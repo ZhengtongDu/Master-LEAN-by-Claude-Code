@@ -24,11 +24,9 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 ## Current Task
 
-刚刚修复了第一章内容的小问题，重新整理并添加交互式代码支持
+编写第三章：命题逻辑（And、Or、Not）
 
 ## Task Queue
-
-- [ ] 编写第三章：命题逻辑（And、Or、Not）
 - [ ] 编写第四章：LEAN 核心语法
 - [ ] 编写第五章：命题与逻辑
 - [ ] 编写第六章：项式证明
@@ -44,3 +42,4 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - [x] 2025-01-26: 编写第一章：初识 LEAN 与环境搭建
 - [x] 2025-01-26: 编写第二章：函数式编程与依赖类型理论基础
 - [x] 2025-01-26: 整理第1章和第2章内容，清理格式，添加交互式代码支持
+- [x] 2025-01-26: 修复第1章 markdown 格式问题（移除错误的代码块包裹）
