@@ -24,7 +24,7 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 ## Current Task
 
-写一个lean环境交互的文档，整理第1章和第2章的内容，并为其内容添加lean环境交互的实现
+编写第三章：命题逻辑（And、Or、Not）
 
 ## Task Queue
 
@@ -42,3 +42,4 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - [x] 2025-01-26: 集成 LEAN 4 交互式代码功能（docsify 插件 + live.lean-lang.org）
 - [x] 2025-01-26: 编写第一章：初识 LEAN 与环境搭建
 - [x] 2025-01-26: 编写第二章：函数式编程与依赖类型理论基础
+- [x] 2025-01-26: 整理第1章和第2章内容，清理格式，添加交互式代码支持
