@@ -24,14 +24,14 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 ## Current Task
 
-本地跑通LEAN环境，接入LEAN的后端，并在书中添加一个测试章节，测试使用可交互的代码对话框
+写一个lean环境交互的文档，整理第1章和第2章的内容，并为其内容添加lean环境交互的实现
 
 ## Task Queue
 
-- [ ] 编写第二章：环境搭建与工具链
-- [ ] 编写第三章：类型论基础
 - [ ] 编写第四章：LEAN 核心语法
 - [ ] 编写第五章：命题与逻辑
+- [ ] 编写第六章：项式证明
+- [ ] 编写第七章：策略式证明
 - [ ] ...（后续章节）
 
 ## Completed
@@ -39,3 +39,6 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - [x] 2025-01-26: 创建项目结构和 docsify 配置
 - [x] 2025-01-26: 生成 index.md 教程目录大纲
 - [x] 2025-01-26: 细化目录内容，创建 17 个章节和 4 个附录的占位文件
+- [x] 2025-01-26: 集成 LEAN 4 交互式代码功能（docsify 插件 + live.lean-lang.org）
+- [x] 2025-01-26: 编写第一章：初识 LEAN 与环境搭建
+- [x] 2025-01-26: 编写第二章：函数式编程与依赖类型理论基础
