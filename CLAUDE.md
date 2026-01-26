@@ -24,10 +24,11 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 ## Current Task
 
-编写第三章：命题逻辑（And、Or、Not）
+刚刚修复了第一章内容的小问题，重新整理并添加交互式代码支持
 
 ## Task Queue
 
+- [ ] 编写第三章：命题逻辑（And、Or、Not）
 - [ ] 编写第四章：LEAN 核心语法
 - [ ] 编写第五章：命题与逻辑
 - [ ] 编写第六章：项式证明
