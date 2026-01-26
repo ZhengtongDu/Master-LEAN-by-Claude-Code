@@ -11,7 +11,9 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 ## 项目结构
 
 - `index.md` - 教程目录和章节索引
-- `chapter1.md`, `chapter2.md`, ... - 各章节内容
+- `chapter01.md` ~ `chapter17.md` - 各章节内容
+- `appendix-a.md` ~ `appendix-d.md` - 附录内容
+- `_sidebar.md` - docsify 侧边栏配置
 
 ## 写作规范
 
@@ -22,11 +24,10 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 ## Current Task
 
-进一步细化目录内容，并且搭建好各章节目录以及占位文件，占位文件中的内容为本节概要、内容点、toy case简介
+编写第一章：走进 LEAN 的世界
 
 ## Task Queue
 
-- [ ] 编写第一章：走进 LEAN 的世界
 - [ ] 编写第二章：环境搭建与工具链
 - [ ] 编写第三章：类型论基础
 - [ ] 编写第四章：LEAN 核心语法
@@ -37,3 +38,4 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 - [x] 2025-01-26: 创建项目结构和 docsify 配置
 - [x] 2025-01-26: 生成 index.md 教程目录大纲
+- [x] 2025-01-26: 细化目录内容，创建 17 个章节和 4 个附录的占位文件
