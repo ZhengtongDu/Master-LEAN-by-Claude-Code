@@ -1,25 +1,25 @@
 # Push Command
 
-自动整理当前目录的所有更改，生成合适的提交信息，并推送到远程仓库。
+Automatically stage all changes in the current directory, generate an appropriate commit message, and push to the remote repository.
 
-## 执行步骤
+## Steps
 
-1. 运行 `git status` 查看所有未追踪和已修改的文件
-2. 运行 `git diff` 查看具体更改内容
-3. 分析更改内容，生成简洁准确的中文提交信息
-4. 使用 `git add` 添加所有相关文件（排除 .html 临时文件）
-5. 使用 `git commit` 提交更改
-6. 使用 `git push` 推送到远程仓库
+1. Run `git status` to check all untracked and modified files
+2. Run `git diff` to see the specific changes
+3. Analyze the changes and generate a concise, accurate commit message in English
+4. Use `git add` to stage all relevant files (excluding .html temporary files)
+5. Use `git commit` to commit the changes
+6. Use `git push` to push to the remote repository
 
-## 提交信息规范
+## Commit Message Guidelines
 
-- 使用中文
-- 第一行为简短摘要（50字以内）
-- 如有必要，空一行后添加详细说明
-- 末尾添加 Co-Authored-By 签名
+- Use English
+- First line should be a short summary (under 50 characters)
+- If necessary, add a blank line followed by detailed description
+- Add Co-Authored-By signature at the end
 
-## 注意事项
+## Notes
 
-- 不要提交 .html 临时文件
-- 不要提交包含敏感信息的文件（如 .env）
-- 如果没有任何更改，告知用户无需提交
+- Do not commit .html temporary files
+- Do not commit files containing sensitive information (e.g., .env)
+- If there are no changes, inform the user that no commit is needed
