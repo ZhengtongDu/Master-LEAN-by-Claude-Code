@@ -1,5 +1,6 @@
 - [首页](README.md)
 - [目录](index.md)
+- [LEAN 4 交互测试](test-lean4.md)
 
 - **第一部分：初识 LEAN**
   - [第一章：走进 LEAN 的世界](chapter01.md)

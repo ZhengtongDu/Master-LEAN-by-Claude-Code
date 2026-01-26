@@ -24,7 +24,7 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 ## Current Task
 
-编写第一章：走进 LEAN 的世界
+本地跑通LEAN环境，接入LEAN的后端，并在书中添加一个测试章节，测试使用可交互的代码对话框
 
 ## Task Queue
 
