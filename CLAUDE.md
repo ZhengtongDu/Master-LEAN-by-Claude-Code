@@ -22,18 +22,7 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - **内容定位**: 要经常写一些toy case的代码，专注于讲解 LEAN 的原理、使用技巧
 - **目标**: 帮助读者从入门到精通 LEAN 定理证明器
 
-## Current Task
-
-编写第三章：命题逻辑（And、Or、Not）
-
-## Task Queue
-- [ ] 编写第四章：LEAN 核心语法
-- [ ] 编写第五章：命题与逻辑
-- [ ] 编写第六章：项式证明
-- [ ] 编写第七章：策略式证明
-- [ ] ...（后续章节）
-
-## Completed
+## Done Tasks
 
 - [x] 2025-01-26: 创建项目结构和 docsify 配置
 - [x] 2025-01-26: 生成 index.md 教程目录大纲
@@ -43,3 +32,16 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - [x] 2025-01-26: 编写第二章：函数式编程与依赖类型理论基础
 - [x] 2025-01-26: 整理第1章和第2章内容，清理格式，添加交互式代码支持
 - [x] 2025-01-26: 修复第1章 markdown 格式问题（移除错误的代码块包裹）
+
+## Current Task
+
+添加一个好看的主页视觉图，要动态的，体现数学形式化证明的美感，可以用Ascii图画的形式
+
+## Todolist
+- [ ] 编写第三章：命题逻辑（And、Or、Not）
+- [ ] 编写第四章：LEAN 核心语法
+- [ ] 编写第五章：命题与逻辑
+- [ ] 编写第六章：项式证明
+- [ ] 编写第七章：策略式证明
+- [ ] ...（后续章节）
+
