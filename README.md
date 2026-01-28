@@ -1,5 +1,9 @@
 # LEAN从入门到精通
 
+<div id="proof-tree-animation" class="proof-tree-container">
+  <pre id="proof-tree-content"></pre>
+</div>
+
 一份面向具有高等数学背景和基本编程知识的研究生的 LEAN 定理证明器中文教程。
 
 ## 在线阅读

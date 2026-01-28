@@ -1,0 +1,110 @@
+/* 证明树动画样式 */
+
+.proof-tree-container {
+  background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+  border: 1px solid #0f3460;
+  border-radius: 12px;
+  padding: 30px 20px;
+  margin: 30px auto;
+  max-width: 600px;
+  min-height: 200px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 20px rgba(0, 212, 255, 0.1),
+              inset 0 0 60px rgba(0, 255, 136, 0.03);
+  position: relative;
+  overflow: hidden;
+}
+
+.proof-tree-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, #00d4ff, transparent);
+  opacity: 0.5;
+}
+
+#proof-tree-content {
+  font-family: 'Fira Code', 'Source Code Pro', 'Consolas', 'Monaco', monospace;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #00ff88;
+  margin: 0;
+  text-align: center;
+  white-space: pre;
+  letter-spacing: 0.5px;
+}
+
+/* 推导线颜色 */
+.proof-line {
+  color: #00d4ff;
+}
+
+/* 规则标注颜色 */
+.proof-rule {
+  color: #ff6b9d;
+}
+
+/* QED 样式 */
+.proof-qed {
+  color: #ffd700;
+  animation: qed-glow 1s ease-in-out infinite alternate;
+}
+
+@keyframes qed-glow {
+  from {
+    text-shadow: 0 0 5px #ffd700, 0 0 10px #ffd700;
+  }
+  to {
+    text-shadow: 0 0 10px #ffd700, 0 0 20px #ffd700, 0 0 30px #ffa500;
+  }
+}
+
+/* 光标闪烁 */
+.typing-cursor {
+  display: inline-block;
+  width: 2px;
+  height: 1.2em;
+  background-color: #00ff88;
+  margin-left: 2px;
+  animation: cursor-blink 0.8s step-end infinite;
+  vertical-align: text-bottom;
+}
+
+@keyframes cursor-blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+/* 标题样式 */
+.proof-title {
+  color: #888;
+  font-size: 12px;
+  margin-bottom: 15px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* 响应式适配 */
+@media (max-width: 768px) {
+  .proof-tree-container {
+    padding: 20px 10px;
+    margin: 20px 10px;
+    min-height: 180px;
+  }
+
+  #proof-tree-content {
+    font-size: 12px;
+    line-height: 1.6;
+  }
+}
+
+@media (max-width: 480px) {
+  #proof-tree-content {
+    font-size: 10px;
+  }
+}
