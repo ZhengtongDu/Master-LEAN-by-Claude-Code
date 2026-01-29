@@ -36,9 +36,10 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 
 ## Current Task
 
-无
+目前的文档在线上查看的时候不支持latex数学符号的语法，修正这个问题
 
 ## Todolist
+- [ ] 文章中的代码框添加一个复制按钮，可以点一下复制其中的代码
 - [ ] 编写第三章：命题逻辑（And、Or、Not）
 - [ ] 编写第四章：LEAN 核心语法
 - [ ] 编写第五章：命题与逻辑
