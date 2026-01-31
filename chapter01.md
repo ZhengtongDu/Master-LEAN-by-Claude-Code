@@ -13,6 +13,8 @@
 对于计算机科学背景的研究者，LEAN 4 可以被定义为：
 **一门基于依赖类型理论（Dependent Type Theory, DTT）的纯函数式编程语言，其类型系统足够强大，以至于可以表达任意数学命题。**
 
+> **依赖类型理论（Dependent Type Theory, DTT）** 是一种类型系统，其核心特征是**类型可以依赖于值**。例如，`Vector Nat 3`（长度为 3 的自然数向量）中，数字 `3` 是一个值，但它出现在类型中。这使得我们可以在类型层面表达更精确的约束，也是 LEAN 能够将数学命题编码为类型的理论基础。详见第二章 2.5 节。
+
 ### 1.1.1 两个身份的统一
 
 LEAN 并不是分裂的，它完美贯彻了 **Curry-Howard 同构**：
@@ -109,6 +111,11 @@ code .
 
 在 `HelloProof.lean` 中输入以下代码（点击"在线运行"可在浏览器中体验）：
 
+> **LEAN 注释语法**：
+> - 单行注释：`-- 注释内容`
+> - 多行注释：`/- 注释内容 -/`
+> - 文档注释：`/-- 文档内容 -/`（会被文档生成工具提取）
+
 ```lean
 -- 1. 定义简单函数
 -- 语法: def 函数名 (参数 : 类型) : 返回类型 := 函数体
@@ -146,6 +153,8 @@ def factorial : Nat → Nat
 
 **命题**：如果 $P$ 蕴含 $Q$，且 $P$ 成立，那么 $Q$ 成立。（即 Modus Ponens）
 
+> **Modus Ponens（肯定前件式）** 是逻辑学中最基本的推理规则之一，源自拉丁语，意为"肯定的方式"。其形式为：若 $P \to Q$ 且 $P$ 成立，则 $Q$ 成立。符号表示：$\frac{P \to Q \quad P}{Q}$
+
 ### 1.5.1 Term Mode（函数式写法）
 
 ```lean
@@ -164,13 +173,21 @@ theorem modus_ponens_term : (P → Q) → P → Q :=
 
 **解析**：
 
-* `(P → Q) → P → Q` 是这个定理的类型（Type）。
+* `(P → Q) → P → Q` 是这个定理的类型（Type）。箭头 `→` 是右结合的，所以这等价于 `(P → Q) → (P → Q)`，即：输入一个 `P → Q`，再输入一个 `P`，输出一个 `Q`。
 * `fun h_imp => fun h_p => h_imp h_p` 是这个类型的项（Term）。
-* 这完全等价于编程中的函数调用！
+  - `fun h_imp =>` 定义匿名函数，接收第一个参数 `h_imp`（类型由位置决定，是 `P → Q`）
+  - `fun h_p =>` 再定义匿名函数，接收第二个参数 `h_p`（类型是 `P`）
+  - `h_imp h_p` 是函数应用：把 `h_p` 传给 `h_imp`，得到类型为 `Q` 的结果
+* 参数名字可以任意取，**位置决定类型**。
+* 这是**柯里化（Currying）**写法：每个函数只接收一个参数，返回下一个函数。等价于 `fun h_imp h_p => h_imp h_p`。
+
+> **柯里化（Currying）**：将接受多个参数的函数转换为一系列只接受单个参数的函数的技术。以逻辑学家 Haskell Curry 命名。在 LEAN 中，所有多参数函数本质上都是柯里化的。
 
 ### 1.5.2 Tactic Mode（交互式写法）
 
 这是你在写复杂数学证明时主要使用的方式。我们使用 `by` 关键字进入 Tactic 模式。
+
+> **`by` 关键字**：写在 `:=` 后面，用于从 Term Mode 切换到 Tactic Mode。使用时确保 VS Code 的 **Lean Infoview** 面板已打开（右上角 "∀" 图标）。`by` 后面可以写单行策略（如 `by trivial`），也可以换行后写多行策略（需要缩进）。
 
 ```lean
 variable (P Q : Prop)
@@ -220,6 +237,8 @@ variable (β : Prop)  -- β 是某种逻辑命题（比如"它是偶数"）
 #check And           -- Prop → Prop → Prop (逻辑"与"是一个函数)
 ```
 
+> **`variable` 关键字**：用于声明（而非定义）一个变量。`variable (α : Type)` 表示"假设存在一个类型 α"，类似数学中的"设 α 为任意集合"。与 `def α : Type := Nat`（定义 α 就是 Nat）不同，`variable` 不指定具体是什么，只声明它存在。
+
 **重要区别**：LEAN 具有 **Proof Irrelevance（证明无关性）**。
 
 * 对于数据（`Type`），我们关心它是哪个值（`5` 和 `6` 是不同的）。
@@ -259,11 +278,31 @@ def p : Prop := 1 + 1 = 2
 def h : p := rfl
 ```
 
+> **`rfl`（reflexivity，自反性）**：LEAN 内置的证明构造器，用于证明**定义相等**——当等式两边经过计算后完全相同时，`rfl` 就是证明。例如 `1 + 1 = 2` 成立是因为 `1 + 1` 计算后就是 `2`。
+
 **解析**：
 
 * `n : Nat` 读作 "n 是一个自然数"。
 * `h : p` 读作 "h 是命题 p 的一个证明"。
 * 在 LEAN 中，检查一个数学证明是否正确，本质上和编译器检查 `n` 是否真的是 `Nat` 类型是一样的（Type Checking）。
+
+### 为什么采用"命题即类型"？
+
+LEAN 的设计基于 **Curry-Howard 同构**（Curry-Howard Correspondence），这是由逻辑学家 Haskell Curry 和数学家 William Howard 分别独立发现的深刻联系。
+
+> **"Proofs are programs, and propositions are types."**
+> （证明是程序，命题是类型。）
+> — Per Martin-Löf（直觉主义类型论创始人）
+
+> **"A proof is a program; the formula it proves is a type for the program."**
+> （证明是程序；它所证明的公式是该程序的类型。）
+> — Philip Wadler
+
+**这样设计的好处**：
+
+1. **统一性**：程序和证明用同一套语言，无需维护两套系统
+2. **机械验证**：类型检查器自动验证证明的正确性，不依赖人工审查
+3. **可计算性**：证明可以被"运行"，从中提取出算法
 
 ---
 
@@ -271,9 +310,13 @@ def h : p := rfl
 
 请在你的 `HelloProof.lean` 文件中尝试完成以下证明（使用 Tactic 模式）。
 
+> **`theorem` vs `def`**：在 LEAN 中，`theorem` 和 `def` 技术上几乎相同，都是定义一个名字和它的值。区别在于：`def` 用于定义数据/函数（返回类型是 `Type`），`theorem` 用于声明定理/证明（返回类型是 `Prop`）。`theorem` 的定义体会被标记为不透明（opaque），不会在后续被展开，而 `def` 是透明的。
+
 **练习题：蕴含的传递性**
 
 求证：如果 $P \implies Q$ 且 $Q \implies R$，则 $P \implies R$。
+
+> **参数括号的作用**：在 `theorem imp_trans (h1 : P → Q) (h2 : Q → R) : P → R` 中，括号 `(参数名 : 类型)` 用于**声明命名参数**。它做两件事：(1) 给参数起名字，使其在证明体中可以引用；(2) 声明参数的类型。如果不用括号，写成 `theorem imp_trans' : (P → Q) → (Q → R) → P → R`，则参数是匿名的，需要用 `intro` 引入并命名。LEAN 有三种括号：`(x : T)` 显式参数、`{x : T}` 隐式参数（自动推断）、`[x : T]` 实例参数（从类型类查找）。
 
 ```lean
 variable (P Q R : Prop)

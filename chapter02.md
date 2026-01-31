@@ -158,15 +158,88 @@ def fib : Nat → Nat
 
 ---
 
-## 2.5 类型理论核心：Universe 与 Prop
+## 2.5 类型理论核心：依赖类型、Universe 与 Prop
 
 这是区分程序员与数学家的分水岭。请仔细阅读本节。
+
+### 2.5.1 什么是依赖类型？
+
+**依赖类型（Dependent Type）**：类型可以由值来参数化，即类型的定义中可以包含具体的值。
+
+在普通类型系统（如 Java、Python）中，类型和值是两个独立的世界：
+- 类型：`Int`, `String`, `List<Int>`
+- 值：`42`, `"hello"`, `[1,2,3]`
+- 类型不能"看到"值
+
+而在依赖类型系统（如 LEAN）中，类型可以包含值作为参数：
+
+```lean
+-- 普通列表：类型不知道长度
+def list1 : List Nat := [1, 2, 3]       -- List Nat
+def list2 : List Nat := [1, 2, 3, 4, 5] -- List Nat（同样的类型）
+
+-- 依赖类型的向量：长度编码在类型中
+-- Vector α n 表示"长度为 n 的 α 类型向量"
+-- Vector Nat 3 和 Vector Nat 5 是不同的类型！
+```
+
+这里 `n` 是一个**值**（自然数），但它出现在**类型** `Vector α n` 中。这就是"类型依赖于值"。
+
+**依赖函数类型（Π 类型）**：函数的返回类型可以依赖于输入值。
+
+```lean
+-- 普通函数：返回类型固定
+def double : Nat → Nat := fun n => n * 2
+
+-- 依赖函数：返回类型依赖于输入值
+-- 输入 n，返回一个长度为 n 的全零向量
+-- zeros 3 的类型是 Vector Nat 3
+-- zeros 5 的类型是 Vector Nat 5
+-- 返回类型随输入值变化！
+def zeros : (n : Nat) → Vector Nat n := fun n => Vector.replicate n 0
+```
+
+### 2.5.2 为什么 LEAN 需要依赖类型？
+
+LEAN 作为定理证明器，需要在类型系统中表达数学命题。而数学命题天然就是依赖类型：
+
+**1. 命题依赖于值**
+
+```lean
+-- 命题 "n 是偶数" 依赖于具体的 n
+def Even (n : Nat) : Prop := ∃ k, n = 2 * k
+
+-- Even 2 和 Even 3 是不同的命题（类型）
+example : Even 2 := ⟨1, rfl⟩  -- 可以证明
+-- example : Even 3 := ?      -- 无法证明
+```
+
+**2. 全称量词需要依赖函数类型**
+
+```lean
+-- "对所有自然数 n，n + 0 = n"
+-- 这实际上是一个依赖函数类型：(n : Nat) → (n + 0 = n)
+-- 返回类型 "n + 0 = n" 依赖于输入 n
+theorem add_zero : ∀ (n : Nat), n + 0 = n := fun n => rfl
+```
+
+**3. 存在量词需要依赖对类型**
+
+```lean
+-- "存在自然数 n 使得 n > 5"
+-- 这是一个依赖对：第二个分量的类型 "n > 5" 依赖于第一个分量 n 的值
+example : ∃ n : Nat, n > 5 := ⟨6, by omega⟩
+```
+
+> **核心观点**：没有依赖类型，我们无法在类型系统中表达 $\forall x, P(x)$ 或 $\exists x, P(x)$ 这样的基本逻辑结构。依赖类型是将数学逻辑嵌入类型系统的关键。
+
+### 2.5.3 类型层级 (The Type Hierarchy)
 
 在常见的编程语言（如 Java）中，`1` 是 `int`，但 `int` 是什么？通常是关键字。
 
 但在 LEAN 中，`Nat` (类型) 本身也是一个**项 (Term)**，它也有类型！
 
-### 2.5.1 类型层级 (The Type Hierarchy)
+### 2.5.4 类型层级 (The Type Hierarchy)
 
 ```lean
 #check 1        -- 1 : Nat
@@ -180,7 +253,7 @@ $$ \text{Term} : \text{Type}_0 : \text{Type}_1 : \text{Type}_2 : \dots $$
 
 这被称为 **Sorts** 或 **Universes**。这样做是为了避免类似于"罗素悖论"的集合论问题。
 
-### 2.5.2 Prop：命题的特权阶级
+### 2.5.5 Prop：命题的特权阶级
 
 LEAN 有一个特殊的类型叫做 `Prop` (即 `Sort 0`)。它是所有逻辑命题的类型。
 

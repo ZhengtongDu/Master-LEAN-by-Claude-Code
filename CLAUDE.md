@@ -33,13 +33,13 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - [x] 2025-01-26: 整理第1章和第2章内容，清理格式，添加交互式代码支持
 - [x] 2025-01-26: 修复第1章 markdown 格式问题（移除错误的代码块包裹）
 - [x] 2025-01-29: 添加动态主页视觉图（Modus Ponens 证明树动画）
+- [x] 2025-01-29: 添加 KaTeX 数学公式渲染支持
 
 ## Current Task
 
-目前的文档在线上查看的时候不支持latex数学符号的语法，修正这个问题
+在书籍的开头放一章Chapter $\infty$：How to use this tutorial，主要介绍如何借助Claude Code以及我写的/probe命令，来获得高效交互式的学习体验与教程知识的自我迭代。
 
 ## Todolist
-- [ ] 文章中的代码框添加一个复制按钮，可以点一下复制其中的代码
 - [ ] 编写第三章：命题逻辑（And、Or、Not）
 - [ ] 编写第四章：LEAN 核心语法
 - [ ] 编写第五章：命题与逻辑
