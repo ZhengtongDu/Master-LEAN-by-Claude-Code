@@ -119,6 +119,10 @@ code .
 ```lean
 -- 1. 定义简单函数
 -- 语法: def 函数名 (参数 : 类型) : 返回类型 := 函数体
+
+/-- addFive: 将输入的自然数加 5
+    输入: n — 自然数
+    输出: n + 5 — 自然数 -/
 def addFive (n : Nat) : Nat := n + 5
 
 -- #eval 指令：编译期计算（类似于 Python 的 print/repl）
@@ -126,6 +130,10 @@ def addFive (n : Nat) : Nat := n + 5
 
 -- 2. 模式匹配与递归
 -- LEAN 要求所有函数必须是 Total 的（对所有输入都有定义且必然终止）
+
+/-- factorial: 计算自然数的阶乘 n!
+    输入: Nat — 自然数 n
+    输出: Nat — n! (0!=1, n!= n × (n-1)!) -/
 def factorial : Nat → Nat
   | 0 => 1
   | n + 1 => (n + 1) * factorial n
