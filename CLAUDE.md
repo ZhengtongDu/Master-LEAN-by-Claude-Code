@@ -40,10 +40,11 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 在书籍的开头放一章Chapter $\infty$：How to use this tutorial，主要介绍如何借助Claude Code以及我写的/probe命令，来获得高效交互式的学习体验与教程知识的自我迭代。
 
 ## Todolist
-- [ ] 编写第三章：命题逻辑（And、Or、Not）
-- [ ] 编写第四章：LEAN 核心语法
-- [ ] 编写第五章：命题与逻辑
-- [ ] 编写第六章：项式证明
-- [ ] 编写第七章：策略式证明
+- [ ] 编写第三章：命题逻辑（And、Or、Not、Iff、经典逻辑）
+- [ ] 编写第四章：量词与相等性（∀、∃、=、rw、simp）
+- [ ] 编写第五章：项式证明
+- [ ] 编写第六章：策略式证明进阶
+- [ ] 编写第七章：归纳类型与递归
+- [ ] 编写第八章：类型类与实例
 - [ ] ...（后续章节）
 
