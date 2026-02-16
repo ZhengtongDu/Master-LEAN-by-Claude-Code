@@ -20,6 +20,7 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - **语言**: 所有文档使用中文撰写，交流可以用英文
 - **格式**: 使用 Markdown 格式
 - **内容定位**: 要经常写一些toy case的代码，专注于讲解 LEAN 的原理、使用技巧
+- **文本风格**：对于代码需要有详细的注释，讲解每个内容的动机，适合初学者阅读
 - **目标**: 帮助读者从入门到精通 LEAN 定理证明器
 
 ## Done Tasks
@@ -34,10 +35,11 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - [x] 2025-01-26: 修复第1章 markdown 格式问题（移除错误的代码块包裹）
 - [x] 2025-01-29: 添加动态主页视觉图（Modus Ponens 证明树动画）
 - [x] 2025-01-29: 添加 KaTeX 数学公式渲染支持
+- [x] 2025-02-16: 将第3章量词内容移至第4章，整理格式，添加相等性/rw/simp/计算性证明章节
 
 ## Current Task
 
-在书籍的开头放一章Chapter $\infty$：How to use this tutorial，主要介绍如何借助Claude Code以及我写的/probe命令，来获得高效交互式的学习体验与教程知识的自我迭代。
+编写第三章：命题逻辑（And、Or、Not、Iff、经典逻辑）
 
 ## Todolist
 - [ ] 编写第三章：命题逻辑（And、Or、Not、Iff、经典逻辑）
