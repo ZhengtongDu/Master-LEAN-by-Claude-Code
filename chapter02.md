@@ -395,6 +395,22 @@ def p1 : Point3D := { x := 1.5, y := 2.0, z := -1.0 }
 
 为了巩固本章知识，我们不使用 LEAN 内置的 `Bool`，而是通过定义函数来模拟简单的布尔逻辑运算。这将展示如何使用模式匹配 (Pattern Matching)。
 
+> **`match ... with` 语法**：LEAN 的模式匹配，本质上就是"分类讨论"。语法结构为：
+> ```
+> match 要讨论的值 with
+> | 情况1 => 结果1
+> | 情况2 => 结果2
+> ```
+> 类似于 Python 的 `match/case`、C 的 `switch/case`，或数学中的分段函数。
+>
+> 在 2.4 节中，`factorial` 和 `fib` 使用了另一种等价的简写形式——直接在函数定义上匹配，省略了 `match ... with`：
+> ```lean
+> -- 显式写法：match ... with
+> def f (n : Nat) : Nat := match n with | 0 => 1 | n + 1 => n
+> -- 简写：直接在定义上匹配（效果完全一样）
+> def g : Nat → Nat | 0 => 1 | n + 1 => n
+> ```
+
 ```lean
 -- 1. 定义逻辑非 (NOT)
 -- 我们利用 pattern matching 来对输入的布尔值进行分类讨论
