@@ -335,13 +335,39 @@ def point2D : Nat × Nat := (1, 2)
 
 对应"或"的概念，或者是编程中的 `Union` / `Variant`。写作 `A ⊕ B` (输入 `\oplus`)。
 
+`Nat ⊕ String` 表示：这个值**要么是 Nat，要么是 String，二选一**。但你不能直接把值塞进去，需要用"标签"告诉 LEAN 你选的是哪边：
+
+- `Sum.inl` = "inject left"（注入左边），表示选择左边的类型
+- `Sum.inr` = "inject right"（注入右边），表示选择右边的类型
+
 ```lean
--- Sum.inl 表示左边的值，Sum.inr 表示右边的值
+-- v1 的类型是 Nat ⊕ String
+-- Sum.inl 10 的意思是：我选左边（Nat），值是 10
 def v1 : Nat ⊕ String := Sum.inl 10
+
+-- v2 的类型也是 Nat ⊕ String
+-- Sum.inr "Error" 的意思是：我选右边（String），值是 "Error"
 def v2 : Nat ⊕ String := Sum.inr "Error"
 
 #check v1  -- 输出: Nat ⊕ String
 ```
+
+使用和类型的值时，需要用模式匹配来"拆开"它，分别处理两种情况：
+
+```lean
+/-- describe: 将和类型的值转换为可读的描述文字
+    输入: v — Nat ⊕ String（要么是数字，要么是字符串）
+    输出: String — 描述文字 -/
+def describe (v : Nat ⊕ String) : String :=
+  match v with
+  | Sum.inl n => s!"这是一个数字: {n}"
+  | Sum.inr s => s!"这是一段文字: {s}"
+
+#eval describe v1  -- "这是一个数字: 10"
+#eval describe v2  -- "这是一段文字: Error"
+```
+
+> **实际应用**：和类型常用于表达"成功或失败"的场景。比如一个函数可能返回计算结果或错误信息，就可以用 `Result ⊕ ErrorMsg` 来表达。
 
 ---
 
