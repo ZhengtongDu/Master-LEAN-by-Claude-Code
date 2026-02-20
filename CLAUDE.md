@@ -49,10 +49,9 @@ github仓库：git@github.com:ZhengtongDu/Master-LEAN-by-Claude-Code.git
 - [x] 2025-01-29: 添加 KaTeX 数学公式渲染支持
 - [x] 2025-02-16: 将第3章量词内容移至第4章，整理格式，添加相等性/rw/simp/计算性证明章节
 - [x] 2026-02-16: 整理第3章和第5章内容，清理格式（本章目标blockquote、概念blockquote、契约注释、修复代码问题）
+- [x] 2026-02-20: 整理第5-9章：重新编号（ch6→ch5, ch7→ch6, ch8→ch7, ch9→ch8），格式润色，编写新第9章（证明自动化），更新 index.md
 
 ## Current Task
-
-整理第6到9章的内容，使其符合教程一贯的风格，编排内容，调整各章内容的排布，补充缺少的其他必要内容，并添加交互式代码支持
 
 ## Todolist
 

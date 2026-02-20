@@ -280,6 +280,20 @@ example (n : Nat) : n + 0 = n := by
   simp only [Nat.add_zero]  -- 只用 Nat.add_zero 这一条引理
 ```
 
+### 4.5.3 `calc`：链式证明
+
+> **calc 块**：当证明步骤较多时，`calc` 块可以写出非常易读的链式推导，类似于在纸上写等式推导过程。每一步给出中间结果和对应的证明依据。
+
+```lean
+variable (a b c : Nat)
+
+-- 证明结合律的一个特例
+example : (a + b) + c = a + (c + b) := by
+  calc
+    (a + b) + c = a + (b + c) := by rw [Nat.add_assoc] -- 加法结合律
+    _           = a + (c + b) := by rw [Nat.add_comm b c] -- 仅交换 b 和 c
+```
+
 ---
 
 ## 4.6 计算性证明：`norm_num`、`omega`、`decide`

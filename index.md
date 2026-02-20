@@ -56,20 +56,20 @@
 
 ### [第五章：项式证明](chapter05.md)
 
-- 5.1 直接构造证明项
-- 5.2 函数应用与组合
-- 5.3 匿名构造器 ⟨...⟩
-- 5.4 have、let、show 的使用
-- 5.5 项式证明 vs 策略式证明：何时用哪种
+- 5.1 直接构造证明项：证明即函数
+- 5.2 函数应用与组合：逻辑推导的引擎
+- 5.3 匿名构造器：处理"与"和"存在"
+- 5.4 结构化证明：have、let、show
+- 5.5 混合证明与最佳实践
 
 ### [第六章：策略式证明进阶](chapter06.md)
 
-- 6.1 策略回顾：intro、apply、exact
-- 6.2 分类讨论：cases、rcases、obtain
-- 6.3 重写与化简：rw、simp、ring
-- 6.4 组合策略：<;>、·、repeat、first
-- 6.5 调试技巧：trace、sorry、Infoview 的高效使用
-- 6.6 实战：综合证明练习
+- 6.1 策略模式入门
+- 6.2 基础策略：intro、apply、exact
+- 6.3 逻辑策略：constructor、cases、rcases
+- 6.4 重写策略：rw、simp、ring
+- 6.5 自动化策略：decide、aesop、omega
+- 6.6 组合策略与结构化：<;>、·
 
 ---
 
@@ -79,18 +79,17 @@
 
 - 7.1 归纳类型的定义（inductive）
 - 7.2 自然数归纳法
-- 7.3 自定义数据结构：列表、树
-- 7.4 结构归纳法
-- 7.5 良基递归与终止性证明
-- 7.6 实战：证明列表性质
+- 7.3 结构归纳法
+- 7.4 良基递归（Well-Founded Recursion）
+- 7.5 互递归与嵌套递归
 
 ### [第八章：类型类与实例](chapter08.md)
 
-- 8.1 从结构体到类型类（class）
-- 8.2 实例（instance）的定义与自动推断
-- 8.3 常用类型类：Inhabited、BEq、Ord、ToString
-- 8.4 代数结构的类型类层次
-- 8.5 实战：定义自己的代数结构
+- 8.1 结构体（Structure）详解
+- 8.2 类型类（Class）机制
+- 8.3 实例（Instance）的定义与推断
+- 8.4 常用类型类：Inhabited、BEq、ToString
+- 8.5 代数结构的类型类层次（Mathlib 预览）
 
 ### [第九章：证明自动化](chapter09.md)
 
